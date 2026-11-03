@@ -373,21 +373,23 @@ Let $p,q\in\R^d$ be distinct, and set
     \qquad
     \upq:=\frac{q-p}{\ellpq}.
 \end{equation}
-For $\alpha\geq1$, the stepping-stone diversion neighborhood determined by
-$p$ and $q$ is
+\tr{For every finite $\alpha\geq1$,} the stepping-stone diversion
+neighborhood determined by $p$ and $q$ is
 \begin{equation}\label{eq:ss-region}
     S_{\mathrm{SS},\alpha}(p,q)
     :=
     \set{
         z\in\R^d:
-        \norm{z-p}^{\alpha}
-        +
-        \norm{z-q}^{\alpha}
-        \leq
-        \ellpq^{\alpha}
+        \tr{\left(
+        \norm{z-p}^{\alpha}+\norm{z-q}^{\alpha}
+        \right)^{1/\alpha}\leq\ellpq}
     }.
 \end{equation}
 
+
+\tr{For finite $\alpha>0$, this condition is equivalent to
+$\norm{z-p}^{\alpha}+\norm{z-q}^{\alpha}\leq\ellpq^\alpha$,
+the power form used in subsequent calculations.}
 
 Its normalized region is
 \begin{equation}\label{eq:unit-region}
@@ -557,6 +559,24 @@ stepping-stone construction and the empty-region conventions of
 $\GG_{\mathrm{op}}(V)$ and $\RNG_{\mathrm{cl}}(V)$ are always identified
 explicitly.
 
+
+\tr{For fixed $p,q,z$, the distance expression in
+\eqref{eq:ss-region} has the endpoint limit}
+\begin{equation*}
+\tr{\lim_{\alpha\to\infty}
+  \left(\norm{z-p}^{\alpha}+\norm{z-q}^{\alpha}\right)^{1/\alpha}
+  =\max\{\norm{z-p},\norm{z-q}\}.}
+\end{equation*}
+\tr{Thus the non-strict limiting inequality yields the closed-lune
+geometric endpoint
+$S_{\mathrm{SS},\infty}^{\mathrm{geom}}(p,q):=L_{\mathrm{cl}}(p,q)$.
+For the graph-theoretic endpoint, we instead write
+$\SSG_\infty(V):=\RNG_{\mathrm{op}}(V)$, in agreement with
+\Cref{cor:finite-stabilization} for finite $V$.
+Applying the empty-region rule directly to the closed-lune endpoint
+would produce $\RNG_{\mathrm{cl}}(V)$, which may differ when a
+third site lies on the lune boundary. The two lunes have equal
+$d$-dimensional volume.}
 
 \begin{definition}[Stepping-stone graph]
 For a finite or locally finite set $V\subset\R^d$, the stepping-stone
@@ -952,6 +972,21 @@ by deleting the two defining sites from the segment $[p,q]$.
 \end{proof}
 
 
+\begin{remark}[\tr{Parameters below one}]
+\tr{If the defining inequality is extended to $0<\alpha<1$, the
+neighborhood reduces to $\{p,q\}$. Indeed, for $z\notin\{p,q\}$,
+put $r=\norm{z-p}>0$ and $s=\norm{z-q}>0$. Strict
+subadditivity of $t^\alpha$ and the triangle inequality yield}
+\begin{equation*}
+\tr{r^\alpha+s^\alpha>(r+s)^\alpha\geq\ellpq^\alpha.}
+\end{equation*}
+\tr{Thus no third site belongs to the neighborhood, and the
+corresponding graph on every finite $V$ is the complete graph
+$K_{|V|}$. For $d\geq2$, the normalized volume is zero for
+all $0<\alpha\leq1$. The nontrivial geometric analysis therefore
+starts at $\alpha=1$.}
+\end{remark}
+
 The convergence of the planar graph to the relative-neighborhood graph was
 identified by \citet[Theorem~3.5]{kannangara2018stepping}. The following
 result strengthens that statement by identifying the increasing union of the
@@ -986,7 +1021,17 @@ Moreover,
     \kappa_d
     I_{\nicefrac{3}{4}}\left(\frac{d+1}{2},\frac12\right).
 \end{equation}
-where $I_{\nicefrac{3}{4}}$ is the regularized incomplete beta function.
+\tr{Here $I_x(a,b)$ denotes the regularized incomplete beta function,
+for $0\leq x\leq1$ and $a,b>0$, defined by}
+\begin{equation*}
+\tr{\begin{aligned}
+I_x(a,b)&=\frac{B_x(a,b)}{B(a,b)},\\
+B_x(a,b)&=\int_0^x t^{a-1}(1-t)^{b-1}\dd t,\\
+B(a,b)&=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}.
+\end{aligned}}
+\end{equation*}
+\tr{The hyperspherical-cap formula used here is given by
+\citet{li2011concise}.}
 
 \end{proposition}
 \begin{proof}
