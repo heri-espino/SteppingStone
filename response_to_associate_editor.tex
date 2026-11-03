@@ -1,13 +1,11 @@
 % Response to CGTA referee report (25 October 2026).
 % Build from the repository root:
 %   pdflatex -interaction=nonstopmode response_to_associate_editor.tex
-%   bibtex response_to_associate_editor
 %   pdflatex -interaction=nonstopmode response_to_associate_editor.tex
 %   pdflatex -interaction=nonstopmode response_to_associate_editor.tex
-% Uses references.bib already present in the SteppingStone repository.
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage{graphicx}
+\usepackage{graphicx} % Required for inserting images
 \usepackage{xcolor}
 \usepackage[round]{natbib}
 \usepackage{newtxtext}
@@ -21,7 +19,7 @@
 
 \title{Response to Associate Editor}
 \author{Heriberto Espino-Montelongo \and H\'ector Maravillo}
-\date{}
+\date{November 3, 2026}
 
 \begin{document}
 \maketitle
@@ -32,7 +30,10 @@ Regarding our research article entitled ``Geometry and Volume of
 Stepping-Stone Diversion Neighborhoods in Euclidean Spaces of Arbitrary
 Dimension'' (manuscript number CGTA-D-26-00059), we thank you and the
 reviewer for the careful evaluation and constructive suggestions.
+%Your comments have been fundamental in significantly improving the overall quality of the manuscript.
+
 We have revised the manuscript accordingly, marking the changes in dark red.
+%We have made our best effort to address all of the issues raised in your comments. Below, we provide a detailed, point-by-point response to each of your comments.
 Our point-by-point responses follow. The comments are reproduced or
 lightly paraphrased where mathematical notation requires clarification.
 
@@ -50,7 +51,7 @@ and provide a reference.}
 \textbf{Response.} We now identify $I_x(a,b)$ explicitly as the
 \emph{regularized incomplete beta function}, give its definition in terms
 of the incomplete and complete beta functions, and cite the
-hyperspherical-cap formula of \citet{li2011concise} in the revised
+hyperspherical-cap formula of Li (2011) in the revised
 proposition.
 
 \item \tb{You take $\alpha\geq1$ throughout the paper. Can you also consider
@@ -94,10 +95,10 @@ Poisson model for dimension 2, the expected degree results are missing.}
 clearly distinguished. We have added an explicit result for the
 stationary planar Poisson model. With
 $a=a_{2,\mathrm{SS}}(\alpha)$, its mean degree is $\pi/a$,
-consistent with the degree constant of \citet{devroye1988expected}.
+consistent with the degree constant of Devroye (1988).
 Hence the intensity of undirected edges is $\rho\pi/(2a)$.
 Combining this with the mean edge length in
-\citet{watanabe2008evaluating} gives the expected total edge length
+Watanabe (2008) gives the expected total edge length
 per unit area,
 \[
   \frac{\rho\pi}{2a}\,
@@ -115,8 +116,5 @@ from that theorem.
 
 \noindent We appreciate the reviewer's suggestions and hope that these
 clarifications address the concerns raised.
-
-\bibliographystyle{plainnat}
-\bibliography{references}
 
 \end{document}
