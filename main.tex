@@ -1402,11 +1402,13 @@ algorithm in higher dimensions.
 \section{Probabilistic consequences}
 \label{sec:probabilistic-consequences}
 
-The normalized volume is also the parameter that enters the expected-size
-theory of regular empty-region graphs. The first part of this section records
-the arbitrary-dimensional consequences of Devroye's theorem. The second part
-is an explicitly planar specialization of the graph-edge-length approximation
-of \citet{watanabe2008evaluating}.
+\tr{The normalized volume enters the expected-size theory of regular
+empty-region graphs. We first record the arbitrary-dimensional
+consequences of Devroye's theorem, then derive planar binomial
+edge-length formulas and exact stationary Poisson edge intensities.
+We also retain the planar approximation of
+\citet{watanabe2008evaluating}, distinguishing its interpretation
+from stationary edge-intensity sampling.}
 The verification below uses compactness, midpoint symmetry, and similarity
 equivariance from \Cref{sec:geometry}; convexity itself is not a hypothesis in
 Devroye's definition.
@@ -1480,6 +1482,83 @@ edge-count conclusion gives \eqref{eq:devroye-edge-lower-bound}; the factor
 $\nicefrac{1}{2}$ appears because the sum of the vertex degrees counts every undirected
 edge twice.
 \end{proof}
+
+\subsection{\tr{Planar binomial edge lengths}}
+\tr{Here $d=2$, $\alpha>1$ is finite, and
+$a=a_{2,\mathrm{SS}}(\alpha)$. For $n$ independent points
+with planar density $f$, let $M_n$ count the graph edges and
+let $T_n$ be their total Euclidean length.}
+
+\begin{proposition}[\tr{Expected planar binomial edge lengths}]
+\label{prop:binomial-length}
+\tr{For $n\geq2$ define}
+\begin{equation*}
+\tr{q_\alpha(x,y)=
+\int_{S_{\mathrm{SS},\alpha}(x,y)}f(z)\dd z.}
+\end{equation*}
+\tr{Then, with extended nonnegative expectations allowed,}
+\begin{equation}\label{eq:binomial-total-length}
+\tr{\begin{aligned}
+\E[T_n]
+&=\binom n2\int_{\R^2}\int_{\R^2}
+ \norm{x-y} f(x)\\
+&\quad\times f(y)[1-q_\alpha(x,y)]^{n-2}
+ \dd y\dd x.
+\end{aligned}}
+\end{equation}
+\tr{Removing $\norm{x-y}$ from the integrand gives $\E[M_n]$.
+Thus $\E[T_n]/\E[M_n]$ is the edge-count-weighted mean
+length when $\E[T_n]$ is finite.}
+
+\tr{If $f$ is supported on a bounded rectangle $W$,
+is continuous there, and satisfies
+$0<c\leq f(x)\leq C<\infty$ on $W$, then}
+\begin{equation}\label{eq:binomial-length-asymptotic}
+\tr{\E[T_n]\sim
+\frac{\pi^{3/2}\sqrt n}{4a^{3/2}}
+\int_W\sqrt{f(x)}\dd x.}
+\end{equation}
+\tr{In particular, for a uniform sample in a rectangle
+of area $A$,}
+\begin{equation}\label{eq:binomial-uniform-length}
+\tr{\E[T_n]\sim
+\frac{\pi^{3/2}}{4a^{3/2}}\sqrt{nA}.}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\tr{Conditional on $X_i=x$ and $X_j=y$, the other
+$n-2$ independent points avoid the diversion neighborhood
+with probability $[1-q_\alpha(x,y)]^{n-2}$.
+Summing the conditional edge contributions proves the
+exact identity and its edge-count counterpart.}
+
+\tr{For the asymptotic statement, put $y=x+u/\sqrt n$.
+For almost every $x\in W$ and fixed $u$, similarity
+normalization and continuity give}
+\begin{equation*}
+\tr{n q_\alpha(x,x+u/\sqrt n)
+\longrightarrow af(x)\norm u^2.}
+\end{equation*}
+\tr{The rectangular support and positive lower bound on
+$f$ provide a uniform quadratic lower bound on
+$q_\alpha(x,y)$ for nearby sites; the remaining pairs
+have exponentially small void probabilities. Dominated
+convergence, after rescaling and separating the boundary
+strip, therefore applies. In polar coordinates,}
+\begin{equation*}
+\tr{\int_{\R^2}\norm u\,e^{-af(x)\norm u^2}\dd u
+=\frac{\pi^{3/2}}{2[af(x)]^{3/2}}.}
+\end{equation*}
+\tr{Substitution proves
+\eqref{eq:binomial-length-asymptotic}. For uniform $f=1/A$,
+the integral of $\sqrt f$ over $W$ equals $\sqrt A$.}
+\end{proof}
+
+\tr{Although $T_n=M_n(T_n/M_n)$ for each realization
+with $M_n>0$, multiplying the separate expectations
+$\E[M_n]\E[T_n/M_n]$ is not generally valid:
+the count and sample-average edge length can be correlated.}
 
 \subsection{Planar Poisson specialization}
 
@@ -1558,6 +1637,70 @@ the Gabriel graph. As $\alpha\to\infty$,
 \end{equation}
 which recovers his approximation for the relative-neighborhood graph.
 \end{proof}
+
+\begin{proposition}[\tr{Exact planar Poisson edge intensities}]
+\label{prop:poisson-exact-intensities}
+\tr{Let $\mathcal P_\rho$ be a stationary Poisson process
+of intensity $\rho>0$ on $\R^2$, and put
+$a=a_{2,\mathrm{SS}}(\alpha)>0$ for finite $\alpha>1$.
+Let $D_{\mathrm{typ}}$ be the degree of a typical point.
+For a bounded Borel set $W$ of positive area $|W|$,
+let $M(W)$ and $T(W)$ count and sum the lengths of
+undirected edges whose midpoints lie in $W$.
+Then}
+\begin{equation}\label{eq:poisson-mean-degree}
+\tr{\E[D_{\mathrm{typ}}]=\frac{\pi}{a},
+\qquad
+\frac{\E[M(W)]}{|W|}=\frac{\rho\pi}{2a}.}
+\end{equation}
+\tr{The exact total edge-length intensity is}
+\begin{equation}\label{eq:poisson-length-intensity}
+\tr{\frac{\E[T(W)]}{|W|}
+=\frac{\pi^{3/2}\sqrt\rho}{4a^{3/2}}.}
+\end{equation}
+\tr{Therefore the stationary edge-intensity-weighted
+mean length is}
+\begin{equation}\label{eq:poisson-mean-edge}
+\tr{\frac{\E[T(W)]}{\E[M(W)]}
+=\frac{\sqrt\pi}{2\sqrt{\rho a}},}
+\end{equation}
+\tr{which agrees with \eqref{eq:watanabe-moments}.}
+\end{proposition}
+
+\begin{proof}
+\tr{By similarity factorization, a pair of sites at
+separation $r$ determines a forbidden region of area
+$ar^2$. Under the two-point Poisson Palm distribution,
+its empty-region probability is $e^{-\rho ar^2}$.
+The Campbell--Mecke identity \citep{last2017lectures}
+and polar integration give}
+\begin{equation*}
+\tr{\E[D_{\mathrm{typ}}]
+=\rho\int_{\R^2}e^{-\rho a\norm u^2}\dd u
+=\frac{\pi}{a}.}
+\end{equation*}
+\tr{Using midpoints to anchor edges and dividing by
+two to avoid counting each undirected edge twice yields}
+\begin{equation*}
+\tr{\begin{aligned}
+\frac{\E[M(W)]}{|W|}
+&=\frac{\rho^2}{2}\int_{\R^2}
+e^{-\rho a\norm u^2}\dd u,\\
+\frac{\E[T(W)]}{|W|}
+&=\frac{\rho^2}{2}\int_{\R^2}
+\norm u e^{-\rho a\norm u^2}\dd u.
+\end{aligned}}
+\end{equation*}
+\tr{The two integrals are $\pi/(\rho a)$ and
+$\pi^{3/2}/[2(\rho a)^{3/2}]$, respectively.
+Their evaluation and ratio prove the assertions.}
+\end{proof}
+
+\tr{The midpoint convention makes these identities exact
+for the stationary graph on the entire plane. In contrast,
+the graph induced by points restricted to a bounded window
+has boundary effects and need not obey the same exact
+length formula.}
 
 \section{Numerical evaluation and validation}
 \label{sec:numerical}
