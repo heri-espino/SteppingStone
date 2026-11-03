@@ -1,0 +1,122 @@
+% Response to CGTA referee report (25 October 2026).
+% Build from the repository root:
+%   pdflatex -interaction=nonstopmode response_to_associate_editor.tex
+%   bibtex response_to_associate_editor
+%   pdflatex -interaction=nonstopmode response_to_associate_editor.tex
+%   pdflatex -interaction=nonstopmode response_to_associate_editor.tex
+% Uses references.bib already present in the SteppingStone repository.
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[round]{natbib}
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\tr}[1]{\textcolor[HTML]{aa0000}{#1}}
+\newcommand{\tb}[1]{\textcolor[HTML]{0000bb}{#1}}
+\newcommand{\ta}[1]{\textcolor[HTML]{99007d}{#1}}
+\newcommand{\tg}[1]{\textcolor[HTML]{009999}{#1}}
+
+\title{Response to Associate Editor}
+\author{Heriberto Espino-Montelongo \and H\'ector Maravillo}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent Dear Associate Editor,
+
+Regarding our research article entitled ``Geometry and Volume of
+Stepping-Stone Diversion Neighborhoods in Euclidean Spaces of Arbitrary
+Dimension'' (manuscript number CGTA-D-26-00059), we thank you and the
+reviewer for the careful evaluation and constructive suggestions.
+We have revised the manuscript accordingly, marking the changes in dark red.
+Our point-by-point responses follow. The comments are reproduced or
+lightly paraphrased where mathematical notation requires clarification.
+
+\begin{enumerate}
+
+\item \tb{Section 4 does a great job of gathering all inclusion and
+monotonicity results that computational geometers might be interested in.}
+
+\textbf{Response.} We thank the reviewer for this positive assessment.
+We have retained the organization and results of Section~4.
+
+\item \tb{In formula (56), please mention explicitly what the function is
+and provide a reference.}
+
+\textbf{Response.} We now identify $I_x(a,b)$ explicitly as the
+\emph{regularized incomplete beta function}, give its definition in terms
+of the incomplete and complete beta functions, and cite the
+hyperspherical-cap formula of \citet{li2011concise} in the revised
+proposition.
+
+\item \tb{You take $\alpha\geq1$ throughout the paper. Can you also consider
+$\alpha<1$? Maybe you could comment on that.}
+
+\textbf{Response.} We added a remark following the special-cases result.
+For $0<\alpha<1$, strict subadditivity gives
+$r^\alpha+s^\alpha>(r+s)^\alpha$ for $r,s>0$.
+Together with the triangle inequality, this shows that the diversion
+neighborhood consists only of its two endpoints. Consequently, every
+finite-set graph is complete, and its $d$-dimensional normalized volume
+is zero. We therefore retain $\alpha\geq1$ as the main domain of study.
+
+\item \tb{The definition in (5) does not directly admit $\alpha=\infty$.
+Consider the equivalent expression with the $1/\alpha$ power so that
+its limit can be taken explicitly, and discuss the endpoint.}
+
+\textbf{Response.} We have rewritten the finite-parameter defining
+inequality in the equivalent form
+\[
+  \bigl(\lVert z-p\rVert^\alpha+\lVert z-q\rVert^\alpha\bigr)^{1/\alpha}
+  \leq \lVert p-q\rVert.
+\]
+Its left-hand side converges to
+$\max\{\lVert z-p\rVert,\lVert z-q\rVert\}$ as $\alpha\to\infty$.
+We now distinguish the closed-lune set obtained from the limiting
+non-strict inequality from the open-lune relative-neighborhood graph
+obtained by eventual stabilization on finite point sets. This
+boundary distinction explains why the limiting geometry and the
+limiting graph need not coincide in degenerate configurations.
+
+\newpage
+\item \tb{Section 5 applies theorems of Devroye and Watanabe to derive
+some results on the expected degree and the expected edge length for
+random stepping-stone graphs. It has no new technical contributions.
+It would have been nice, though, if the results were more homogeneous.
+In Devroye's model, the expected edge lengths are missing, and in the
+Poisson model for dimension 2, the expected degree results are missing.}
+
+\textbf{Response.} We agree that the two sampling models should be
+clearly distinguished. We have added an explicit result for the
+stationary planar Poisson model. With
+$a=a_{2,\mathrm{SS}}(\alpha)$, its mean degree is $\pi/a$,
+consistent with the degree constant of \citet{devroye1988expected}.
+Hence the intensity of undirected edges is $\rho\pi/(2a)$.
+Combining this with the mean edge length in
+\citet{watanabe2008evaluating} gives the expected total edge length
+per unit area,
+\[
+  \frac{\rho\pi}{2a}\,
+  \frac{\sqrt{\pi}}{2\sqrt{\rho a}}
+  =\frac{\pi^{3/2}\sqrt{\rho}}{4a^{3/2}}.
+\]
+The revised manuscript states this result as a proposition with a
+short proof. We keep Devroye's general independent-sample model
+separate: its cited theorem provides asymptotic degree and edge-count
+conclusions, not the corresponding expected-length formula for an
+arbitrary density. We have not claimed that such a formula follows
+from that theorem.
+
+\end{enumerate}
+
+\noindent We appreciate the reviewer's suggestions and hope that these
+clarifications address the concerns raised.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
