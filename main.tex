@@ -1559,27 +1559,36 @@ the Gabriel graph. As $\alpha\to\infty$,
 which recovers his approximation for the relative-neighborhood graph.
 \end{proof}
 
-\begin{proposition}[\tr{Planar Poisson total edge-length intensity}]
+\begin{proposition}[\tr{Expected total edge length per unit area}]
 \label{prop:poisson-total-edge-length}
-\tr{In the stationary planar Poisson model, the expected degree
-is $\pi/a$, consistent with the regular-set result of
-\citet{devroye1988expected}. Each undirected edge is counted
-twice in the degree sum, so the expected number of edges
-per unit area is $\rho\pi/(2a)$. Combining this with the
-intensity-weighted mean edge length, which agrees with
-\eqref{eq:watanabe-moments} (cf.\ \citet{watanabe2008evaluating}),
-gives}
+\tr{For the stationary planar Poisson stepping-stone graph with
+$\rho>0$ and $\alpha>1$, the expected total length of undirected
+edges per unit area is}
 \begin{equation}\label{eq:poisson-total-length-per-area}
+\tr{\frac{\pi^{3/2}\sqrt{\rho}}{4a^{3/2}}.}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\tr{The Poisson void probability from the preceding proposition
+gives an expected degree of $\pi/a$, in agreement with the
+limiting degree constant of \citet{devroye1988expected}.
+Since each undirected edge has two endpoints, the expected
+number of edges per unit area is $\rho\pi/(2a)$.
+The intensity-weighted mean edge length agrees with
+\eqref{eq:watanabe-moments} of \citet{watanabe2008evaluating}.
+Multiplying the two quantities gives}
+\begin{equation*}
 \tr{\begin{aligned}
 \frac{\rho\pi}{2a}\,\E[L]
-&=\frac{\rho\pi}{2a}\,
-\frac{\sqrt{\pi}}{2\sqrt{\rho a}}\\
+&=\frac{\rho\pi}{2a}
+  \frac{\sqrt{\pi}}{2\sqrt{\rho a}}\\
 &=\frac{\pi^{3/2}\sqrt{\rho}}{4a^{3/2}}.
 \end{aligned}}
-\end{equation}
-\tr{This is the expected total edge length per unit area of
-the stationary graph, not the total length of an infinite graph.}
-\end{proposition}
+\end{equation*}
+\tr{The result concerns stationary edge-length intensity,
+rather than the total length of a finite-window graph.}
+\end{proof}
 
 \section{Numerical evaluation and validation}
 \label{sec:numerical}
