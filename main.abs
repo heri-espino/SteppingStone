@@ -1,0 +1,20 @@
+We study the geometry and \(d\)-dimensional volume of the stepping-stone
+diversion region in Euclidean space. Its volume factorizes as the \(d\)th
+power of the distance between the defining sites times a normalized constant
+\(a_{d,\mathrm{SS}}(\alpha)\). We derive an explicit boundary
+parametrization that reduces the original \(d\)-dimensional volume problem
+to a one-dimensional integral. We recover the degenerate and \tb{Gabriel
+cases and show that, after removing the two defining sites, the
+finite-parameter exclusion regions converge from within to the open
+relative-neighborhood lune}. The limiting volume is
+expressed through the regularized incomplete beta function. We prove strict region and volume
+monotonicity in \(\alpha\), and use the resulting inclusions to place the
+induced graphs among classical proximity graphs. We apply Devroye's
+expected-size framework to obtain the asymptotic expected degree of the
+stepping-stone graph in terms of \(a_{d,\mathrm{SS}}(\alpha)\). In the
+planar Poisson model considered by Watanabe, we further show that the
+normalized area determines the corresponding restricted-search edge-length
+density.
+Finally, we derive a numerically stable quadrature formula and verify it
+independently in 18 rejection-sampling experiments, each with \(10^8\)
+samples and with every discrepancy below two Monte Carlo standard errors.
