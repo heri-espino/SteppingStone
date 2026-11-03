@@ -1561,64 +1561,30 @@ which recovers his approximation for the relative-neighborhood graph.
 
 \begin{proposition}[\tr{Planar Poisson total edge-length intensity}]
 \label{prop:poisson-total-edge-length}
-\tr{Let $\mathcal P_\rho$ be a stationary homogeneous Poisson point
-process in $\R^2$ of intensity $\rho>0$, and fix $\alpha>1$.
-Write $a=a_{2,\mathrm{SS}}(\alpha)>0$.
-Let $D_{\mathrm{typ}}$ be the degree of a typical Poisson vertex.
-For a bounded Borel set $W\subset\R^2$ of positive area $|W|$,
-let $M(W)$ count the undirected stepping-stone edges whose midpoints
-lie in $W$, and let $T(W)$ be the sum of their Euclidean lengths.
-Then the expected degree and edge intensity are}
+\tr{In the stationary planar Poisson graph, let $D$ be the degree
+of a typical vertex. For a bounded region $W$ of area $|W|$,
+let $M(W)$ count undirected edges with midpoints in $W$ and
+$T(W)$ sum their lengths. The same void probability used above
+gives the expected degree and edge intensity:}
 \begin{equation}\label{eq:poisson-mean-degree-and-edge-intensity}
-\tr{\E[D_{\mathrm{typ}}]=\frac{\pi}{a},
-\qquad
-\frac{\E[M(W)]}{|W|}=\frac{\rho\pi}{2a}.}
+\tr{\begin{aligned}
+\E[D]
+&=\rho\int_{\R^2}e^{-\rho a\norm{u}^2}\dd u
+=\frac{\pi}{a},\\
+\frac{\E[M(W)]}{|W|}&=\frac{\rho\pi}{2a}.
+\end{aligned}}
 \end{equation}
-\tr{Consequently, the expected total edge length per unit area is}
+\tr{Multiplying the edge intensity by the intensity-weighted
+mean edge length (equal to \eqref{eq:watanabe-moments}) gives}
 \begin{equation}\label{eq:poisson-total-length-per-area}
 \tr{\frac{\E[T(W)]}{|W|}
-=\frac{\rho\pi}{2a}
+=\frac{\rho\pi}{2a}\,
 \frac{\sqrt{\pi}}{2\sqrt{\rho a}}
 =\frac{\pi^{3/2}\sqrt{\rho}}{4a^{3/2}}.}
 \end{equation}
-\tr{The first factor is the intensity of undirected edges,
-and the second is their intensity-weighted mean length,
-which agrees with \eqref{eq:watanabe-moments}.}
+\tr{This is a per-unit-area result for the stationary graph,
+not an exact formula for a graph induced by a finite window.}
 \end{proposition}
-
-\begin{proof}
-\tr{For two inserted sites at distance $r$, the Poisson void
-probability of their diversion region of area $ar^2$ is
-$e^{-\rho ar^2}$. The Campbell--Mecke formula
-\citep{last2017lectures} therefore yields}
-\begin{equation*}
-\tr{\E[D_{\mathrm{typ}}]
-=\rho\int_{\R^2}e^{-\rho a\norm{u}^2}\dd u
-=\frac{\pi}{a}.}
-\end{equation*}
-\tr{Counting undirected edges by their midpoints and dividing
-by two to avoid double counting gives the edge intensity
-$\rho\E[D_{\mathrm{typ}}]/2$. Applying the same identity
-with edge length as a weight gives}
-\begin{equation*}
-\tr{\begin{aligned}
-\frac{\E[T(W)]}{|W|}
-&=\frac{\rho^2}{2}
-  \int_{\R^2}\norm{u}e^{-\rho a\norm{u}^2}\dd u\\
-&=\frac{\rho^2}{2}\,2\pi
-  \int_0^\infty r^2e^{-\rho ar^2}\dd r\\
-&=\frac{\pi^{3/2}\sqrt{\rho}}{4a^{3/2}}.
-\end{aligned}}
-\end{equation*}
-\tr{Dividing this length intensity by the edge intensity
-recovers $\sqrt{\pi}/(2\sqrt{\rho a})$, as claimed.}
-\end{proof}
-
-\tr{These identities concern the infinite stationary Poisson
-graph, with edges assigned to windows by their midpoints.
-They are not exact formulas for the graph induced only by
-the points inside a finite observation window, where
-boundary effects may occur.}
 
 \section{Numerical evaluation and validation}
 \label{sec:numerical}
