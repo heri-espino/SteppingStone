@@ -105,16 +105,14 @@
 
 \begin{abstract}
 The stepping-stone graph forms a one-parameter family of empty-region graphs originally introduced in the plane.
-We develop a geometric, graph-theoretic, and % Agregue esta porque tambien creo que es importante hablar del SS graph
+We develop a geometric, graph-theoretic, and
 probabilistic analysis of the stepping-stone graph in
 \(\R^d\), for every \(d\geq2\).
- % 
 The volume of the diversion neighborhood 
 factorizes as the \(d\)th power of
 the distance between the defining sites times a 
 normalized constant that depends only on $\alpha$, 
 the stepping-stone parameter.
-% sisa >:D
 An explicit boundary parametrization reduces
 the original \(d\)-dimensional volume problem to a one-dimensional integral.
 We recover the degenerate case and the case corresponding to the region
@@ -123,8 +121,8 @@ and prove, in every dimension,
 that, after removing the two defining sites, the finite-parameter
 neighborhoods converge from within to 
 the open lune defining the relative-neighborhood
-graph. % para que quede igual que el de gg
-Consequently, their volumes converge to the classical % unit-lune % creo que es mejor decir que converge solo al volumen, por la prorposicion 1
+graph.
+Consequently, their volumes converge to the classical
 volume of the lune defining the 
 relative-neighborhood graph, for which we record an equivalent regularized
 incomplete-beta representation. For arbitrary ambient dimension, we also
@@ -133,7 +131,7 @@ corresponding inclusions among classical proximity graphs, establish
 connectivity, and show that, for $\alpha\geq2$, the defining empty-region
 condition need only be evaluated for 
 those edges in the Gabriel graph 
-that are not in the open relative-neighborhood graph. %open-lune relative-neighborhood edges. 
+that are not in the open relative-neighborhood graph.
 The resulting volume constant specializes
 existing expected-size results for random proximity graphs. Finally, a
  change of variables gives a stable quadrature formula, 
@@ -304,11 +302,6 @@ volume constant and its geometric derivation in arbitrary dimension.
 
 For numerical evaluation, we derive a change of variables that removes the
 endpoint singularity present in the original integral representation. 
-% \tb{The
-% resulting stable quadrature formula is implemented in the
-% \textsc{ProximityGraphs} Python package
-% \citep{maravillo2026proximitygraphs}.} % Recomendación eliminar esta oración: En algunos ambitos matemáticos, no hay mucho aprecio a Python, así que recomendaría no hablar de Python en la introducción, dejarlo solo para la sección 6.
-% JAJAJA :(
 The computational companion to this paper \citep{espino2026computational} records the quadrature,
 visualization, and validation procedures, together with their outputs,
 sample counts, and deterministic seeds. The numerical values are
@@ -327,8 +320,6 @@ one-dimensional volume formula and treats the degenerate case and the cases corr
 \Cref{sec:monotonicity-graphs} proves strict region and volume monotonicity
 and records the resulting graph inclusions, connectivity,
 finite-parameter stabilization, and candidate-set consequences.
-% \Cref{sec:probabilistic-consequences} applies Devroye's expected-size \tb{theory} % Es realmente una teoría, o más bien es un enfoque?
-% and presents the planar \tb{restricted-search edge-length approximation.} % es necesario el "restricted-search?. Además no hace falta decir "Section 5 applies Devroye's ... and presents the planar .... [for the stepping stone graphs]? Es decir explicar a que se aplica.
 \Cref{sec:probabilistic-consequences} applies Devroye's
 theorem for graphs to obtain expected-degree and edge-count
 results for the stepping-stone graph. It also specializes Watanabe's
@@ -470,80 +461,15 @@ Henceforth, we refer to $G_{\mathrm{cl}}(p,q)$ and
 $G_{\mathrm{op}}(p,q)$ as the closed and open Gabriel balls, respectively,
 and to $L_{\mathrm{cl}}(p,q)$ and $L_{\mathrm{op}}(p,q)$ as the closed and
 open relative-neighborhood lunes, respectively. 
-% \tb{This explicit open--closed
-% distinction records the boundary conventions used in the empty-region
-% literature and in the original stepping-stone construction
-% \citep{cardinal2009empty,kannangara2018stepping}.} % Es necesaria esta precisión?
 The associated
 empty-region graphs are denoted by
 $\GG_{\mathrm{cl}}(V)$, $\GG_{\mathrm{op}}(V)$,
 $\RNG_{\mathrm{cl}}(V)$, and $\RNG_{\mathrm{op}}(V)$.
 
-% \begingroup
-% \color[HTML]{cccccc}
 
-% For a finite or locally finite set $V\subset\mathbb{R}^d$ and a neighborhood or region $N$, the empty-region graph associated with $N$, denoted by $\G_N(V)$, is defined by
-% \begin{equation}
-% pq\in E\bigl(\mathcal G_N(V)\bigr)
-% \quad\Longleftrightarrow\quad
-% N(p,q)\cap\bigl(V\setminus{p,q}\bigr)=\varnothing,
-% \end{equation}
-% where $p,q$ are distinct points of $V$.
 
-% \begin{definition}[Empty-region graph]
-% Let $V\subset\R^d$ be finite or locally finite, and let $N$ be a symmetric
-% region assignment that associates with every pair of distinct points
-% $p,q\in\R^d$ a region
-% \begin{equation}
-% N(p,q)=N(q,p)\subseteq\R^d.
-% \end{equation}
-% The empty-region graph induced by $N$ on $V$ is the simple undirected graph
-% \begin{equation}
-% \G_N(V):=\bigl(V,E_N(V)\bigr),
-% \end{equation}
-% where $V$ is the vertex set and $E_N(V)$ is the edge set defined by
-% \begin{equation}
-% \{p,q\}\in E_N(V)
-% \quad\Longleftrightarrow\quad
-% N(p,q)\cap\bigl(V\setminus\{p,q\}\bigr)=\varnothing
-% \end{equation}
-% for every pair of distinct vertices $p,q\in V$. For brevity, we write
-% $ pq\in E_N(V)$ to mean $\{p,q\}\in E_N(V)$.
-% \end{definition}
 
-% For later comparison, the closed and open regions defining the Gabriel graph for $p,q\in V$ are the closed and open balls with diameter $pq$, respectively:
-% \begin{equation}
-%     G_{\mathrm{cl}}(p,q):=B\!\left(\frac{p+q}{2},\frac{\ellpq}{2}\right),
-%     \qquad
-%     G_{\mathrm{op}}(p,q):=B^\circ\!\left(\frac{p+q}{2},\frac{\ellpq}{2}\right),
-% \end{equation}
-% Similarly, the closed and open regions defining the relative-neighborhood graph are the closed and open lunes, respectively:
-% \begin{equation}
-%     L_{\mathrm{cl}}(p,q)
-%     :=B(p,\ellpq)\cap B(q,\ellpq),
-%     \qquad
-%     L_{\mathrm{op}}(p,q)
-%     :=B^\circ(p,\ellpq)\cap B^\circ(q,\ellpq).
-% \end{equation}
-% For simplicity, we refer to $G_{\mathrm{cl}}(p,q)$ and $G_{\mathrm{op}}(p,q)$ as the closed and open Gabriel balls, and to $L_{\mathrm{cl}}(p,q)$ and $L_{\mathrm{op}}(p,q)$ as the closed and open relative-neighborhood lunes, respectively.
 
-% \endgroup
-%For later comparison, let $p$ and $q$ be two distinct points. The closed and open regions defining the Gabriel graph are the closed and open balls with diameter (pq), respectively:
-%\begin{equation}
-%    G_{\mathrm{cl}}(p,q):=B\!\left(\frac{p+q}{2},\frac{\ellpq}{2}\right),
-%    \qquad
-%    G_{\mathrm{op}}(p,q):=B^\circ\!\left(\frac{p+q}{2},\frac{\ellpq}{2}\right),
-%\end{equation}
-%\tb{For simplicity, we refer to these as the closed and open Gabriel balls, respectively.}
-%Similarly, the closed and open regions defining the relative-neighborhood graph for two distinct points $p$ and $q$ are the closed and open lunes, respectively:
-%\begin{equation}
-%    L_{\mathrm{cl}}(p,q)
-%    :=B(p,\ellpq)\cap B(q,\ellpq),
-%    \qquad
-%    L_{\mathrm{op}}(p,q)
-%    :=B^\circ(p,\ellpq)\cap B^\circ(q,\ellpq).
-%\end{equation}
-%For simplicity, we refer to these as the closed and open relative-neighborhood lunes, respectively.
 
 
 
@@ -637,7 +563,6 @@ boundary is the limiting relative-neighborhood lune.
     sites are fixed at $\0$ and $e_1$.}
     \label{fig:ss-regions}
 \end{figure*}
-% \FloatBarrier
 
 To complement the static views in \Cref{fig:ss-regions}, the computational
 companion~\citep{espino2026computational} provides an
@@ -817,7 +742,6 @@ half is parametrized by $x=x_\alpha(u)$, and the transverse radius is
 $y_\alpha(u)$.}
 \label{fig:ss-proof-midpoint}
 \end{figure}
-% \FloatBarrier
 
 \subsection{One-dimensional volume formula}
 
@@ -1065,16 +989,6 @@ Hence, for all sufficiently large \(\alpha\),
 \end{equation}
 so \(z\in S_{\mathrm{SS},\alpha}(p,q)\).
 
-% This proves \eqref{eq:open-lune-limit}. The same eventual-membership argument
-% shows that
-% \begin{equation}
-% \mathbf{1}_{S_{\mathrm{SS},\alpha}(p,q)\setminus\{p,q\}}(z)
-% \longrightarrow
-% \mathbf{1}_{L_{\mathrm{op}}(p,q)}(z)
-% \end{equation}
-% for every \(z\in\R^d\). Since deleting the two defining sites does not change
-% Lebesgue measure and all these sets lie in the bounded closed lune, dominated
-% convergence yields
 This proves \eqref{eq:open-lune-limit}. Since membership is eventually
 constant at every point, the neighborhoods lie in the bounded closed lune,
 and deleting their two defining sites does not change Lebesgue measure,
@@ -1105,17 +1019,7 @@ $a_{3,\mathrm{RNG}}=\nicefrac{5\pi}{12}$, respectively.
 \section{Monotonicity and graph consequences}
 \label{sec:monotonicity-graphs}
 
-% The region, volume, and graph results in this section hold in arbitrary
-% dimension. The Delaunay containment in the final remark is also
-% dimension independent; only the linear candidate bound and the cited
-% stepping-stone algorithm are specific to the plane.
 
-% The strict region and volume results, the graph inclusion chains,
-% connectivity, and finite-parameter stabilization established in this section
-% hold in every ambient dimension. The containment in the Delaunay and Gabriel graphs also
-% remain valid in arbitrary dimension. \tb{The linear planar candidate bound,
-% however, is dimension-specific, and the corresponding candidate graphs may
-% already have quadratic size in dimension three.} % No me queda claro en esta frase sobre que es la "candidate bound", ni sobre que se aplica el "quadratic size". Creo que podría mejorarse esta oración.
 
 The strict region and volume results, the graph inclusion chains,
 connectivity, and finite-parameter stabilization established in this section
@@ -1790,7 +1694,6 @@ $\alpha\approx23.643510648$. These intersections are numerical observations.
     in the text.}
     \label{fig:ss-volume-curves}
 \end{figure}
-% \FloatBarrier
 
 \subsection{Independent rejection-sampling validation}
 
@@ -1918,73 +1821,10 @@ $2.113\times10^{-4}$. The largest absolute quadrature error estimate reported
 by the adaptive routine across these cases is $3.552\times10^{-11}$. 
 These results provide numerical support for the theoretical predictions.  
 
-% \section{Conclusion}
-% \label{sec:conclusion}
 
-% We determined the volume of the stepping-stone diversion neighborhood in
-% \(\R^d\) for every \(d\geq2\). For two distinct sites \(p\) and
-% \(q\), the volume factorizes as
-% \begin{equation}
-% \lambda_d\!\left(S_{\mathrm{SS},\alpha}(p,q)\right)
-% =
-% \norm{p-q}^d a_{d,\mathrm{SS}}(\alpha),
-% \end{equation}
-% where the normalized constant depends only on \(d\) and \(\alpha\).
-% Using an explicit boundary parametrization and orthogonal cross-sections,
-% we reduced the computation of $a_{d,\mathrm{SS}}(\alpha)$ to a
-% one-dimensional integral valid for every $\alpha>1$.
 
-% The formula recovers the degenerate and Gabriel region cases. At the other endpoint,
-% we strengthen the previously recognized planar graph limit: in every
-% dimension, the finite-parameter neighborhoods, after removal of the defining
-% sites, increase from within to the open relative-neighborhood lune, and their
-% volumes converge to Devroye's classical unit-lune constant.
-% For each finite point set, the corresponding graph in fact stabilizes
-% at the open-lune relative-neighborhood graph for a finite parameter.
-% Strict region
-% inclusion makes the graphs decrease under edge inclusion, places them between
-% the relative-neighborhood and Gabriel graphs in the corresponding parameter
-% ranges, and yields connectivity for every nonempty finite point set and
-% every $\alpha\geq1$.
-% The parameter \(\alpha=2\) is also the sharp threshold for guaranteed
-% geometric and abstract planarity in dimension two. For \(\alpha\geq2\),
-% Gabriel or Delaunay edges provide candidate sets, but these inclusions do
-% not by themselves give a linear-time planar algorithm or a subquadratic
-% higher-dimensional algorithm.
 
-% Devroye's regular-set theorem identifies the limiting conditional
-% expected degree in every dimension and yields a general asymptotic lower
-% bound for the expected number of edges:
-% \begin{equation}
-%     \lim_{n\to\infty}
-%     \E\!\left[N_n(X_1)\mid X_1=x\right]
-%     =
-%     \frac{\kappa_d}{a_{d,\mathrm{SS}}(\alpha)}.
-% \end{equation}
-% For planar graphs with
-% $\alpha\geq2$, worst-case sparsity upgrades that bound to the exact limit
-% $\nicefrac{\pi}{[2a_{2,\mathrm{SS}}(\alpha)]}$ under Devroye's density regularity
-% condition.
-% In Watanabe's planar homogeneous
-% Poisson point process, it gives the corresponding graph-edge-length density
-% \begin{equation}
-%     2\rho a_{2,\mathrm{SS}}(\alpha)r
-%     e^{-\rho a_{2,\mathrm{SS}}(\alpha)r^2},
-% \end{equation}
-% which specializes to Watanabe's Gabriel formula at $\alpha=2$ and approaches
-% his relative-neighborhood formula as $\alpha\to\infty$.
-% This calculation and the planar volume formula are planar
-% specializations.
-% The Delaunay containment itself, the general
-% Devroye degree limit and edge-count lower bound, and the remaining geometric,
-% analytic, and graph-theoretic results hold for every \(d\geq2\).
 
-% A change of variables yields stable quadrature, independently validated by a
-% rejection sampler applied to the original region inequality. Across 18 runs of
-% $10^8$ samples, every discrepancy was below two Monte Carlo standard errors.
-% Continuity and strict monotonicity additionally make the normalized
-% volume, and hence the limiting expected degree, an invertible calibration of
-% the diversion parameter.
 
 
 \section{Conclusion}
